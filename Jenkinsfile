@@ -17,7 +17,9 @@ pipeline {
                     echo "**** Creating virtual environment for Python 3 ****" 
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv') 
                     echo "**** Creating virtual environment for Python 2 ****" 
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv')   
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv') 
+                    echo "**** Activating virtual environment for Python 3 ****"  
+                    echo bat(returnStdout: true, script: 'py38venv\\Scripts\\activate')  
 
                         
                     //echo "************** Creating Python 2.7 virtual Environment *******************"
