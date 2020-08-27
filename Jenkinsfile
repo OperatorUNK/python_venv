@@ -30,8 +30,7 @@ pipeline {
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv')
 
                     echo "**** Activating virtual environment for Python 2 ****"  
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && 
-                    python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
                     //echo bat(returnStdout: true, script: 'python Hello_python3.py')
                     
 
