@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    if(!fileExists("\pyvenvs"))
+                    if(!fileExists("\\pyvenvs"))
                     {
                         echo bat(returnStdout: true, script: 'mkdir pyvenvs')
                     }else{
