@@ -10,6 +10,7 @@ pipeline {
                     }else{
                         echo "Directory exists"
                     }
+                    echo "**** Installing and upgrading pip ****"
                     echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')                     
                         
                     //echo "************** Creating Python 2.7 virtual Environment *******************"
