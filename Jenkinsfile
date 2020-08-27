@@ -13,15 +13,21 @@ pipeline {
                     echo "**** Installing and upgrading pip ****"
                     echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')
                     echo bat(returnStdout: true, script: 'pip install virtualenv')
-                    echo bat(returnStdout: true, script: 'cd pyvenvs')  
+                    echo bat(returnStdout: true, script: 'cd pyvenvs')
+
                     echo "**** Creating virtual environment for Python 3 ****" 
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv') 
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv')
+
+                    echo "**** Activating virtual environment for Python 3 and showing Python version ****"  
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V')
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && pip install -U pytest')
+
                     echo "**** Creating virtual environment for Python 2 ****" 
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv')
-                    echo "**** Activating virtual environment for Python 3 and showing Python version ****"  
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V') 
+
                     echo "**** Activating virtual environment for Python 2 ****"  
                     echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V')
+                    
                     echo "**** Deactivating virtual environments Python 2 and Python 3 ****"
                     echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\deactivate')
                     echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\deactivate')
