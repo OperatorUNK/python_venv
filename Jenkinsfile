@@ -14,6 +14,7 @@ pipeline {
                     echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')
                     echo bat(returnStdout: true, script: 'pip install virtualenv')
                     echo bat(returnStdout: true, script: 'cd pyvenvs')
+                    echo "Workspace is ${WORKSPACE}"
 
                     echo "**** Creating virtual environment for Python 3 ****" 
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv')
