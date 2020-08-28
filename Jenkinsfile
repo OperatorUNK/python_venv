@@ -54,13 +54,13 @@ pipeline {
             steps {
                 script {
                    echo "************** Testing code python 3  *******************"
-                   //echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
+                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
                    echo bat(returnStdout: true, script: 'cd test_py3 && pytest')
                 }
                 script {
                    echo "************** Testing code python 2  *******************"
                    //echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
-                   echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
+                   //echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
                 }
             }
         }
