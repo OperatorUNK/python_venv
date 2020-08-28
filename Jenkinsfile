@@ -53,6 +53,7 @@ pipeline {
             steps {
                 script {
                    echo "************** Testing code *******************"
+                   echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && cd .. && dir')
                 }
             }
         }
