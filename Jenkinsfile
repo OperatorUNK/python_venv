@@ -53,7 +53,9 @@ pipeline {
             steps {
                 script {
                    echo "************** Testing code *******************"
-                   echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\pytest')
+                   echo bat(returnStdout: true, script: 'dir')
+                   echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate')
+                   echo bat(returnStdout: true, script: 'dir')
                 }
             }
         }
@@ -75,7 +77,6 @@ pipeline {
         }
     }
 }
-
 
 
 
