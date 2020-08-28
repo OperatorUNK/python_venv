@@ -20,9 +20,9 @@ pipeline {
 
                     echo "**** Activating virtual environment for Python 3 and showing Python version ****"
                     bat '''
-                        echo "Buils starting..."'
+                        cd pyvenvs
+                        py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py
                         python -V
-                        cd
                     '''
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
                     
@@ -78,6 +78,7 @@ pipeline {
         }
     }
 }
+
 
 
 
