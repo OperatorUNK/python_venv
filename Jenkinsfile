@@ -30,12 +30,11 @@ pipeline {
                     
                     
 
-                    //echo "**** Creating virtual environment for Python 2 ****" 
-                    //echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv')
+                    echo "**** Creating virtual environment for Python 2 ****" 
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv')
 
-                    //echo "**** Activating virtual environment for Python 2 ****"
- 
-                    //echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python2.py')
+                    echo "**** Activating virtual environment for Python 2 ****"
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python2.py')
 
 
                     //echo "**** Deactivating virtual environments Python 2****"
@@ -43,7 +42,7 @@ pipeline {
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\deactivate')
 
                         
-                    //echo "************** Creating Python 2.7 virtual Environment *******************"
+                    //echo "************** Nothing important here *******************"
                     //echo bat(returnStdout: true, script: 'mkdir pyvenvs')
                     //echo env.PATH
                     //echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')
@@ -59,8 +58,8 @@ pipeline {
                 }
                 script {
                    echo "************** Testing code python 2  *******************"
-                   //echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
-                   //echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
+                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate')
+                   echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
                 }
             }
         }
@@ -82,3 +81,4 @@ pipeline {
         }
     }
 }
+
