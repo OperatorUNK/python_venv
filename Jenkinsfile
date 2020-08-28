@@ -18,9 +18,14 @@ pipeline {
                     echo "**** Creating virtual environment for Python 3 ****" 
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv')
 
-                    echo "**** Activating virtual environment for Python 3 and showing Python version ****"  
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
-                    //echo bat(returnStdout: true, script: 'python Hello_python3.py')
+                    echo "**** Activating virtual environment for Python 3 and showing Python version ****"
+                    bat """
+                    cd pyvenvs && py38venv\\Scripts\\activate
+                    python -V
+                    python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py
+                    """  
+                    //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
+                    
 
                     echo "**** Deactivating virtual environments Python 3 ****"
                     echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\deactivate')
