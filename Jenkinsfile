@@ -22,7 +22,7 @@ pipeline {
 
                     echo "**** Activating virtual environment for Python 3 and showing Python version ****"
 
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && ${WORKSPACE}\\Hello_python3.py')
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && dir')
                     
 
                     echo "**** Deactivating virtual environments Python 3 ****"
@@ -74,6 +74,7 @@ pipeline {
         }
     }
 }
+
 
 
 
