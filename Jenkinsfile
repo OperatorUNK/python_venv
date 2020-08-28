@@ -35,6 +35,7 @@ pipeline {
 
                     echo "**** Activating virtual environment for Python 2 ****"
                     echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py2\\Hello_python2.py')
+                    echo bat(returnStdout: true, script: 'pip install nose2')
 
 
                     //echo "**** Deactivating virtual environments Python 2****"
@@ -58,8 +59,8 @@ pipeline {
                 }
                 script {
                    echo "************** Testing code python 2  *******************"
-                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate')
-                   echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
+                   //echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install pytest==2.7.2 ')
+                   //echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
                 }
             }
         }
@@ -81,5 +82,4 @@ pipeline {
         }
     }
 }
-
 
