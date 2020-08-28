@@ -27,6 +27,7 @@ pipeline {
 
                     echo "**** Deactivating virtual environments Python 3 ****"
                     echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\deactivate')
+                    echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\pytest')
                     
 
                     //echo "**** Creating virtual environment for Python 2 ****" 
@@ -54,7 +55,7 @@ pipeline {
                 script {
                    echo "************** Testing code *******************"
                    echo bat(returnStdout: true, script: 'dir')
-                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate && C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\pytest ')
+                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
                    
                 }
             }
@@ -77,4 +78,5 @@ pipeline {
         }
     }
 }
+
 
