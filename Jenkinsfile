@@ -21,8 +21,9 @@ pipeline {
                     echo "**** Activating virtual environment for Python 3 and showing Python version ****"
                     bat '''
                         cd pyvenvs
-                        py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py
+                        py38venv\\Scripts\\activate 
                         python -V
+                        python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py
                     '''
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
                     
@@ -34,14 +35,12 @@ pipeline {
                     echo "**** Creating virtual environment for Python 2 ****" 
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv')
 
-                    echo "**** Activating virtual environment for Python 2 ****"  
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python2.py')
-                    
-                    
+                    echo "**** Activating virtual environment for Python 2 ****"
+ 
+                    //echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python2.py')
 
-                    echo bat(returnStdout: true, script: 'where pytest')
 
-                    echo "**** Deactivating virtual environments Python 2 and Python 3 ****"
+                    echo "**** Deactivating virtual environments Python 2****"
                     
                     echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\deactivate')
 
@@ -78,7 +77,6 @@ pipeline {
         }
     }
 }
-
 
 
 
