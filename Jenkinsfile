@@ -19,7 +19,7 @@ pipeline {
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv')
 
                     echo "**** Activating virtual environment for Python 3 and showing Python version ****"
-                    echo bat(returnStdout: true, script: """
+                    echo bat """
                     cd pyvenvs && py38venv\\Scripts\\activate
                     python -V
                     python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py
