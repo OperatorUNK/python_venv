@@ -19,13 +19,8 @@ pipeline {
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv')
 
                     echo "**** Activating virtual environment for Python 3 and showing Python version ****"
-                    bat '''
-                        cd pyvenvs
-                        py38venv\\Scripts\\activate 
-                    echo python -V
-                        python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py
-                    '''
-                    //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
+
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python3.py')
                     
 
                     echo "**** Deactivating virtual environments Python 3 ****"
@@ -37,7 +32,7 @@ pipeline {
 
                     echo "**** Activating virtual environment for Python 2 ****"
  
-                    //echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python2.py')
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\Hello_python2.py')
 
 
                     echo "**** Deactivating virtual environments Python 2****"
