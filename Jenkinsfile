@@ -54,7 +54,7 @@ pipeline {
                 script {
                    echo "************** Testing code *******************"
                    echo bat(returnStdout: true, script: 'dir')
-                   echo bat(returnStdout: true, script: '\\pyvenvs\\py38venv\\Scripts\\activate && \\test_py3\\pytest')
+                   echo bat(returnStdout: true, script: '\\pyvenvs\\py38venv\\Scripts\\activate')
                    echo bat(returnStdout: true, script: 'dir')
                 }
             }
