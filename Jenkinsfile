@@ -53,7 +53,7 @@ pipeline {
             steps {
                 script {
                    echo "************** Testing code *******************"
-                   echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && cd .. && \\test_py3\\pytest')
+                   echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\pytest')
                 }
             }
         }
