@@ -73,7 +73,7 @@ pipeline {
         success {
             echo 'Next steps Creating a pip requeriments file, creating new scripts in python 2 and 3, using test on python venvs '
             script {
-                manager.build.parent.builds.drop(10).each { it.delete() }
+                options { buildDiscarder(logRotator(numToKeepStr: '10')) }
                     }
         }
         failure {
