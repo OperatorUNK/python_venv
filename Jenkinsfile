@@ -22,11 +22,11 @@ pipeline {
 
                     echo "**** Activating virtual environment for Python 3 and showing Python version ****"
 
-                    //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py')
-                    bat label: '', script: '''cd pyvenvs
-                        py38venv\\Scripts\\activate
-                        python -V
-                        C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py'''
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\activate && python -V && C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py')
+                    //bat label: '', script: '''cd pyvenvs
+                        //py38venv\\Scripts\\activate
+                        //python -V
+                        //C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py'''
 
                     //echo "**** Deactivating virtual environments Python 3 ****"
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\deactivate')
