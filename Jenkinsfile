@@ -30,8 +30,7 @@ pipeline {
                     bat label: '', script: '''cd pyvenvs
                         py38venv\\Scripts\\activate
                         python -V
-                        C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py
-                        pip freeze > requirements.txt'''
+                        C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py'''
 
                     //echo "**** Deactivating virtual environments Python 3 ****"
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\deactivate')
@@ -91,7 +90,7 @@ pipeline {
         
         success {
             echo 'Next steps Creating a pip requeriments file'
-            //echo bat(returnStdout: true, script: 'pip freeze > requirements.txt')
+            echo bat(returnStdout: true, script: 'pip freeze > requirements.txt')
         }
         failure {
             echo 'This will run only if failed'
