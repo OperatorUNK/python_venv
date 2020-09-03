@@ -60,17 +60,24 @@ pipeline {
         stage('test') {
             steps {
                 script {
-                   echo "************** Testing code python 3 using pytest  *******************"
+                   echo "************** Testing code python3 using pytest  *******************"
                    echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
                    echo bat(returnStdout: true, script: 'cd test_py3 && pytest')
                 }
                 script {
-                   echo "************** Testing code python 3 using nose2  *******************"
+                   echo "************** Testing code python3 using nose2  *******************"
                    echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
                    echo bat(returnStdout: true, script: 'cd test_py3 && nose2')
                 }
                 script {
-                   echo "************** Testing code python 2 using nose2 *******************"
+                   echo "************** Testing code python2 using pytest *******************"
+                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install nose2 && cd test_py2 && pytest')
+                   
+                   
+                   //echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
+                }
+                cript {
+                   echo "************** Testing code python2 using nose2 *******************"
                    echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install nose2 && cd test_py2 && nose2')
                    
                    
