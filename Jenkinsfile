@@ -69,13 +69,13 @@ pipeline {
                    echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
                    echo bat(returnStdout: true, script: 'cd test_py3 && nose2')
                 }
-                //script {
-                   //echo "************** Testing code python 2 using nose2 *******************"
-                   //echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install nose2 && cd test_py2 && nose2')
+                script {
+                   echo "************** Testing code python 2 using nose2 *******************"
+                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install nose2 && cd test_py2 && nose2')
                    
                    
                    //echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
-                //}
+                }
             }
         }
     }
