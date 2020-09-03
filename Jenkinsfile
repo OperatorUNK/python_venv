@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'windows_lumira'}
+    agent {label 'windows'}
     stages {
         stage('build') {
             steps {
