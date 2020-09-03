@@ -18,8 +18,8 @@ pipeline {
                     //Workspace is C:\jenkins\workspace\python_test\python_venv_pipeline
 
                     echo "**** Installing requirements ****"
-                    echo bat(returnStdout: true, script: 'pip install nose2')
-                    echo bat(returnStdout: true, script: 'pip install pytest')
+                    echo bat(returnStdout: true, script: 'pip install nose2 --user')
+                    echo bat(returnStdout: true, script: 'pip install pytest --user')
 
                     echo "**** Creating virtual environment for Python 3 ****" 
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv')
