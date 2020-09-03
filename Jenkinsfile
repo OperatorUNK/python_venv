@@ -11,7 +11,7 @@ pipeline {
                         echo "Directory exists"
                     }
                     echo "**** Installing and upgrading pip ****"
-                    echo bat(returnStdout: true, script: 'c:\\python38\\python.exe -m pip install --upgrade pip')
+                    echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')
                     echo bat(returnStdout: true, script: 'pip install virtualenv')
                     echo bat(returnStdout: true, script: 'cd pyvenvs')
                     echo "Workspace is ${WORKSPACE}"
