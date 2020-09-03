@@ -89,7 +89,8 @@ pipeline {
         post {
         
         success {
-            echo 'Next steps Creating a pip requeriments file, creating new scripts in python 2 and 3, using test on python venvs '
+            echo 'Next steps Creating a pip requeriments file'
+            echo bat(returnStdout: true, script: 'pip freeze > requirements.txt')
         }
         failure {
             echo 'This will run only if failed'
