@@ -30,7 +30,8 @@ pipeline {
                     bat label: '', script: '''cd pyvenvs
                         py38venv\\Scripts\\activate
                         python -V
-                        C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py'''
+                        C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py
+                        pip freeze > requirements.txt'''
 
                     //echo "**** Deactivating virtual environments Python 3 ****"
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\deactivate')
