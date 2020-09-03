@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'windows_lumira'}
+    agent {label 'windows'}
     stages {
         stage('build') {
             steps {
@@ -11,15 +11,15 @@ pipeline {
                         echo "Directory exists"
                     }
                     echo "**** Installing and upgrading pip ****"
-                    //echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')
+                    echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')
                     echo bat(returnStdout: true, script: 'pip install virtualenv')
                     echo bat(returnStdout: true, script: 'cd pyvenvs')
-                    //echo "Workspace is ${WORKSPACE}"
+                    echo "Workspace is ${WORKSPACE}"
                     //Workspace is C:\jenkins\workspace\python_test\python_venv_pipeline
 
                     echo "**** Installing requirements ****"
-                    echo bat(returnStdout: true, script: 'pip install nose2 --user')
-                    echo bat(returnStdout: true, script: 'pip install pytest --user')
+                    echo bat(returnStdout: true, script: 'pip install nose2')
+                    echo bat(returnStdout: true, script: 'pip install pytest')
 
                     echo "**** Creating virtual environment for Python 3 ****" 
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv py38venv')
@@ -30,7 +30,7 @@ pipeline {
                     bat label: '', script: '''cd pyvenvs
                         py38venv\\Scripts\\activate
                         python -V
-                        C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py'''
+                        C:\\Jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py3\\Hello_python3.py'''
 
                     //echo "**** Deactivating virtual environments Python 3 ****"
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py38venv\\Scripts\\deactivate')
@@ -41,19 +41,15 @@ pipeline {
                     echo bat(returnStdout: true, script: 'cd pyvenvs && virtualenv -p C:\\Python27\\python.exe py27venv')
 
                     echo "**** Activating virtual environment for Python 2 ****"
-                    echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py2\\Hello_python2.py')
+                    echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\activate && python -V && python C:\\Jenkins\\workspace\\python_test\\python_venv_pipeline\\test_py2\\Hello_python2.py')
                     
 
 
                     //echo "**** Deactivating virtual environments Python 2****"
-                    
                     //echo bat(returnStdout: true, script: 'cd pyvenvs && py27venv\\Scripts\\deactivate')
 
                         
-                    //echo "************** Nothing important here *******************"
-                    //echo bat(returnStdout: true, script: 'mkdir pyvenvs')
-                    //echo env.PATH
-                    //echo bat(returnStdout: true, script: 'python -m pip install --upgrade pip')
+                   
                 }
             }
         }
@@ -61,24 +57,24 @@ pipeline {
             steps {
                 script {
                    echo "************** Testing code python3 using pytest  *******************"
-                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
+                   echo bat(returnStdout: true, script: 'C:\\Jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
                    echo bat(returnStdout: true, script: 'cd test_py3 && pytest')
                 }
                 script {
                    echo "************** Testing code python3 using nose2  *******************"
-                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
+                   echo bat(returnStdout: true, script: 'C:\\Jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py38venv\\Scripts\\activate')
                    echo bat(returnStdout: true, script: 'cd test_py3 && nose2')
                 }
                 script {
                    echo "************** Testing code python2 using pytest *******************"
-                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install pytest && cd test_py2 && pytest')
+                   echo bat(returnStdout: true, script: 'C:\\Jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install pytest && cd test_py2 && pytest')
                    
                    
                    //echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
                 }
                 script {
                    echo "************** Testing code python2 using nose2 *******************"
-                   echo bat(returnStdout: true, script: 'C:\\jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install nose2 && cd test_py2 && nose2')
+                   echo bat(returnStdout: true, script: 'C:\\Jenkins\\workspace\\python_test\\python_venv_pipeline\\pyvenvs\\py27venv\\Scripts\\activate && pip install nose2 && cd test_py2 && nose2')
                    
                    
                    //echo bat(returnStdout: true, script: 'cd test_py2 && pytest')
